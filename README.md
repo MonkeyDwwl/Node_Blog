@@ -13,7 +13,8 @@
 - express
 - ajax
 - bootstrap
-- es6  
+- es6 
+- ejs
 
 ## 实现的核心功能
 1. 文章管理

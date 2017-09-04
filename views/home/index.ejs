@@ -1,0 +1,71 @@
+<% include header.ejs %>
+  <!-- 内容区start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 main">
+        <ul class="media-list">
+          <% for(var i=0;i<posts.length;i++){%>
+          <li class="media">
+            <a href="/posts?id=<%= posts[i]._id%>" class="media-left">
+              <img class="img-rounded" src="<%= posts[i].cover %>" alt="">
+            </a>
+            <div class="media-body">
+              <div class="media-heading">
+                <h2><a href="/posts?id=<%= posts[i]._id%>"><%= posts[i].subject %></a></h2>
+              </div>
+              <p class="info">
+                <span><i class="glyphicon glyphicon-user"></i>MonkeyDwwl</span>
+                <span><i class="glyphicon glyphicon-time"></i><%= posts[i].time %></span>
+                <span><i class="glyphicon glyphicon-eye-open"></i><%= posts[i].count %></span>
+                <a href=""><i class="glyphicon glyphicon-comment"></i>评论</a>
+              </p>
+              <p class="summary"><%= posts[i].summary %></p>
+            </div>
+          </li>
+          <%}%>
+        </ul>
+        <div class="text-center">
+            <ul class="pagination">
+                <li>
+                    <% if (page == 1) {%>
+                        <a href="javascript:;">«</a>
+                    <% } else {%>
+                        <a href="?page=<%= page -1 %>&count=<%=count%>">«</a>
+                    <% }%>
+                </li>
+                <%for (var i = 0 ; i < size; i++) {%>
+                <li class="<%= page == i+1 ? "active" : "" %>"><a href="?page=<%= i+1 %>&count=<%= count %>"><%= i+1 %></a></li>
+                <% } %>
+                <li>
+                    <% if (page == size) {%>
+                        <a href="javascript:;">»</a>
+                    <% } else {%>
+                        <a href="?page=<%= +page +1 %>&count=<%=count%>">»</a>
+                    <% }%>
+                </li>
+            </ul>
+        </div>
+      </div>
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="panel panel-default hot">
+          <div class="panel-heading">热门文章</div>
+          <div class="panel-body">
+            <ul class="list-unstyled">
+              <% for(var i=0;i<hot.length;i++){ %>
+              <li><span class='label <%= i<3 ? "label-danger" : "label-default" %>'><%= +i+1 %></span> <a href="/posts?id=<%= hot[i]._id %>"><%= hot[i].subject %></a></li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end -->
+  <br>
+  <!-- footer部分 -->
+  <div class="footer text-center">
+    <p>版权所有，保留一切权利！ 转载内容版权归作者及来源网站所有，原创内容转载请注明来源。</p>
+    <p>Copyright &copy; 2013-2020 MoneyDwwl, All Rights Reserved.</p>
+  </div>
+</body>
+</html>

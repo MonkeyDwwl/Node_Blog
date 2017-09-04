@@ -1,0 +1,47 @@
+<% include header.ejs %>
+  <!-- 内容区start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 main">
+        <br>
+        <ol class="breadcrumb">
+          <li><a href="/">首页</a></li>
+          <li><a href="/list?cat=<%= posts.category %>"><%= posts.category %></a></li>
+        </ol>
+        <div class="content">
+          <h1><%= posts.subject %></h1>
+          <p>MonkeyDwwl 发表于(<%= posts.time %>) 本文标签: 浏览量:<%= posts.count %>次
+            <a href=""><i class="glyphicon glyphicon-thumbs-up">喜欢</i></a>
+            <a href=""><i class="glyphicon glyphicon-heart">收藏</i></a>
+          </p>
+          <div class="md"><%= posts.content %></div>
+        </div>
+        <script type="text/javascript">
+          let html = markdown.toHTML($(".md").text());
+          $(".md").html(html);
+        </script>
+        <div class="relative">
+          <h2>相关文章</h2>
+          <div class="row">
+            <div class="col-sm-6 col-xs-12"><a href=""> <i class="glyphicon glyphicon-link glyphicon"></i> 响应式Web设计</a></div>
+            <div class="col-sm-6 col-xs-12"><a href=""> <i class="glyphicon glyphicon-link glyphicon"></i> 响应式Web设计</a></div>
+            <div class="col-sm-6 col-xs-12"><a href=""> <i class="glyphicon glyphicon-link glyphicon"></i> 响应式Web设计</a></div>
+            <div class="col-sm-6 col-xs-12"><a href=""> <i class="glyphicon glyphicon-link glyphicon"></i> 响应式Web设计</a></div>
+            <div class="col-sm-6 col-xs-12"><a href=""> <i class="glyphicon glyphicon-link glyphicon"></i> 响应式Web设计</a></div>
+            <div class="col-sm-6 col-xs-12"><a href=""> <i class="glyphicon glyphicon-link glyphicon"></i> 响应式Web设计</a></div>
+            <div class="col-sm-6 col-xs-12"><a href=""> <i class="glyphicon glyphicon-link glyphicon"></i> 响应式Web设计</a></div>
+            <div class="col-sm-6 col-xs-12"><a href=""> <i class="glyphicon glyphicon-link glyphicon"></i> 响应式Web设计</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end -->
+  <br>
+  <!-- footer部分 -->
+  <div class="footer text-center">
+    <p>版权所有，保留一切权利！ 转载内容版权归作者及来源网站所有，原创内容转载请注明来源。</p>
+    <p>Copyright &copy; 2013-2020 MoneyDwwl, All Rights Reserved.</p>
+  </div>
+</body>
+</html>

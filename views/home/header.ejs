@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>首页</title>
+  <!-- 引入bootstrap.css文件 -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <!-- 引入jQuery -->
+  <script src="/js/jquery-1.11.3.min.js" charset="utf-8"></script>
+  <!-- 引入bootstrap.js文件 -->
+  <script src="/js/bootstrap.js" charset="utf-8"></script>
+  <script src="/js/markdown.min.js" charset="utf-8"></script>
+  <style media="screen">
+    body{
+      background-color: #eee;
+    }
+    #slide img{
+      width: 100%;
+      height: 300px;
+      margin-top: 50px;
+    }
+    .main{
+      background-color: #fff;
+    }
+    .main .media-left img{
+      width: 370px;
+      height: 200px;
+    }
+    .main .media{
+      margin : 20px 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+    }
+    .hot li{
+      line-height: 28px;
+    }
+    .footer{
+      background-color: #101010;
+      color: #666;
+      padding: 15px 0;
+    }
+    @media screen and (max-width:768px){
+      .media-left,.media-body{
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏start -->
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- 三道杠 -->
+        <button class="navbar-toggle collapsed" data-target="#menu" data-toggle="collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="#" class="navbar-brand">MonkeyDwwl · 博客</a>
+      </div>
+      <div id="menu" class="collapse navbar-collapse">
+        <!-- 导航列表 -->
+        <ul class="nav navbar-nav">
+          <li><a href="/">首页</a></li>
+          <% for(var i=0;i<category.length;i++){%>
+          <li><a href="/list?cat=<%= category[i].title %>"><%= category[i].title %></a></li>
+          <%}%>
+        </ul>
+        <!-- 搜索框start -->
+        <form class="navbar-form navbar-right hidden-sm hidden-xs" action="" method="post">
+          <div class="input-group">
+            <input type="text" name="" value="" class="form-control" placeholder="请输入关键字" >
+            <div class="input-group-btn">
+              <button type="button" name="button" class="btn btn-primary" >搜索</button>
+            </div>
+          </div>
+        </form>
+        <!-- 搜索框end -->
+      </div>
+    </div>
+  </nav>
+  <!-- 导航栏end -->
+  <!-- banner区start -->
+  <div class="carousel slide" id="slide" data-ride="carousel" data-interval="3000">
+    <!-- 轮播内容区域 -->
+    <div class="carousel-inner">
+      <div class="item active"><img src="/images/1.jpg" class="img-responsive"></div>
+      <div class="item"><img src="/images/2.jpg" class="img-responsive"></div>
+      <div class="item"><img src="/images/3.jpg" class="img-responsive"></div>
+      <div class="item"><img src="/images/4.jpg" class="img-responsive"></div>
+    </div>
+    <!-- 指示器 -->
+    <ol class="carousel-indicators">
+      <li class="active" data-target="#slide" data-slide-to="0"></li>
+      <li data-target="#slide" data-slide-to="1"></li>
+      <li data-target="#slide" data-slide-to="2"></li>
+      <li data-target="#slide" data-slide-to="3"></li>
+    </ol>
+    <!-- 切换按钮 -->
+    <a href="#slide" class="left carousel-control" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a href="#slide" class="right carousel-control" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+  <!-- banner区end -->
+  <br>
